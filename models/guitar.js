@@ -6,9 +6,9 @@ const guitarSchema = new mongoose.Schema({
 	url: String,
 	tabUrl: String,
 	lyricUrl: String,
-	learnedSong: { type : Boolean, default: false },
+	learnedSong: { type: Boolean, default: false }
 });
 
-const Guitar = mongoose.model('Guitar, guitarSchema');
+const Guitar = mongoose.model('Guitar', guitarSchema);
 
 module.exports = Guitar;
