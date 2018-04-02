@@ -5,6 +5,7 @@ app.controller("GuitarController", ["$http", function($http){
     this.createForm = {};
     this.guitar = "";
 
+
     //create song entry
     this.createGuitar = () => {
         $http({
@@ -26,6 +27,7 @@ app.controller("GuitarController", ["$http", function($http){
             url: '/guitar'
         }).then(response => {
             this.guitars = response.data;
+
         }, error => {
             console.error(error);
         }).catch(err => console.error('Catch: ', err))
