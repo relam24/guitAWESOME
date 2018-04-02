@@ -5,7 +5,6 @@ app.controller('GuitarController', ['$http', function ($http) {
 	this.createForm = {};
 	this.guitar = '';
 
-<<<<<<< HEAD
 // create song entry
 	this.createGuitar = () => {
 		$http({
@@ -32,35 +31,6 @@ app.controller('GuitarController', ['$http', function ($http) {
 		}).catch(err => console.error('Catch: ', err))
 	};
 	this.getGuitar();
-=======
-
-    //create song entry
-    this.createGuitar = () => {
-        $http({
-            method: 'POST',
-            url: '/guitar',
-            data: this.createForm
-        }).then(response => {
-            this.guitars.push(response.data);
-            this.createForm ={};
-        }, error => {
-            console.error(error);
-        }).catch(err => console.error('Catch: ', err));
-    }
-
-    //get index of songs
-    this.getGuitar = () => {
-        $http({
-            method: 'GET',
-            url: '/guitar'
-        }).then(response => {
-            this.guitars = response.data;
-
-        }, error => {
-            console.error(error);
-        }).catch(err => console.error('Catch: ', err))
-    };
->>>>>>> a9d1a2021c70fd095b0adfb466c19b998fbc0ac3
 
 // delete song entry
 	this.deleteGuitar = (id) => {
@@ -79,7 +49,7 @@ app.controller('GuitarController', ['$http', function ($http) {
 		guitar.learnedSong = !guitar.learnedSong;
 		$http({
 			method: 'PUT',
-			url: '/guitars/' + guitar_.id,
+			url: '/guitars/' + guitar._id,
 			data: {
 				name: this.updatedName,
 				artist: this.updatedArtist,
