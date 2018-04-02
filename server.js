@@ -12,7 +12,7 @@ app.use('/guitar', guitarController);
 const mongoURI = process.env.MONGODB_URI || 'mongodb://localhost:27017/guitAWESOME';
 mongoose.connect(mongoURI);
 
-mongoose.connection('open', () => {
+mongoose.connection.once('open', () => {
 	console.log('connection to mongod');
 });
 
