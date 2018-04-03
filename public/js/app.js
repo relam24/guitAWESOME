@@ -1,11 +1,7 @@
 const app = angular.module("GuitarApp", []);
-
 app.controller("GuitarController", ["$http", function($http){
-
     this.createForm = {};
     this.guitar = "";
-
-
     //create song entry
     this.createGuitar = () => {
         $http({
@@ -19,7 +15,6 @@ app.controller("GuitarController", ["$http", function($http){
             console.error(error);
         }).catch(err => console.error('Catch: ', err));
     }
-
     //get index of songs
     this.getGuitar = () => {
         $http({
@@ -27,14 +22,11 @@ app.controller("GuitarController", ["$http", function($http){
             url: '/guitar'
         }).then(response => {
             this.guitars = response.data;
-
         }, error => {
             console.error(error);
         }).catch(err => console.error('Catch: ', err))
     };
-
     this.getGuitar();
-
     //delete song entry
     this.deleteGuitar = (id) => {
         $http({
@@ -46,7 +38,6 @@ app.controller("GuitarController", ["$http", function($http){
             this.guitars.splice(removeByIndex, 1);
         }).catch(err => console.error('Catch: ', err))
     };
-
     //edit song entry
     this.editGuitar = (guitar) => {
         this.learnedSong = false;
@@ -68,6 +59,6 @@ app.controller("GuitarController", ["$http", function($http){
         }).catch(err => console.log('Catch', error))
     }
 
-    this.getGuitar();
 
+    this.getGuitar();
 }]);
