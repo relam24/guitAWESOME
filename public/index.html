@@ -8,7 +8,7 @@
         <link rel="stylesheet" href="/css/app.css">
     </head>
     <body ng-controller="GuitarController as ctrl">
-		<h1> guitAWESOME</h1>
+		<button ng-click='ctrl.getSignedInUser()'>Log In</button>
         <form ng-submit="ctrl.createGuitar()">
             Song: <input type="text" ng-model="ctrl.createForm.name" placeholder="Name">
             Artist:<input type="text" ng-model="ctrl.createForm.artist" placeholder="Artist">

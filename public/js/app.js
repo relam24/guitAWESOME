@@ -2,6 +2,36 @@ const app = angular.module('GuitarApp', []);
 app.controller('GuitarController', ['$http', function ($http) {
 	this.createForm = {};
 	this.guitar = '';
+
+// Created users
+	$http({
+		method: 'POST',
+		url: '/users',
+		data: {
+			username: 'rachel',
+			password: 'guitar'
+		}
+	});
+
+// Created sessions
+	$http({
+		method: 'POST',
+		url: '/sessions',
+		data: {
+			username: 'rachel',
+			password: 'guitar'
+		}
+	});
+
+	this.getSignedInUser = () => {
+		$http({
+			method: 'GET',
+			url: '/app'
+		}).then(response => {
+			console.log(response);
+		});
+	};
+
 // create song entry
 	this.createGuitar = () => {
 		$http({
