@@ -10,11 +10,11 @@
     <body ng-controller="GuitarController as ctrl">
 		<h1> guitAWESOME</h1>
         <form ng-submit="ctrl.createGuitar()">
-            Name: <input type="text" ng-model="ctrl.createForm.name" placeholder="name">
-            Artist:<input type="text" ng-model="ctrl.createForm.artist" placeholder="artist name">
-            Video Url: <input type="text" ng-model="ctrl.createForm.url" placeholder="song video url">
-            Tab Url:<input type="text" ng-model="ctrl.createForm.tabUrl" placeholder="tab url">
-            Lyric Url: <input type="text" ng-model="ctrl.createForm.lyricUrl" placeholder="lyric url">
+            Song: <input type="text" ng-model="ctrl.createForm.name" placeholder="Name">
+            Artist:<input type="text" ng-model="ctrl.createForm.artist" placeholder="Artist">
+            Video: <input type="text" ng-model="ctrl.createForm.url" placeholder="Video Url">
+            Tab:<input type="text" ng-model="ctrl.createForm.tabUrl" placeholder="Tab Url">
+            Lyrics: <input type="text" ng-model="ctrl.createForm.lyricUrl" placeholder="Lyric Url">
             Learned Song: <input type="checkbox" ng-model="ctrl.createForm.learnedSong" value="Learned Song">
             <input type="submit" name="" value="Add New Song">
         </form>
@@ -22,18 +22,18 @@
             <ul>
                 <li><a href="{{guitar.url}}">{{guitar.name}}</a></li>
                 <li>{{guitar.artist}}</li>
-                <li>{{guitar.tabUrl}}</li>
-                <li>{{guitar.lyricUrl}}</li>
+                <li><a href="{{guitar.tabUrl}}">{{guitar.tabUrl}}</a></li>
+                <li><a href="{{guitar.lyricUrl}}">{{guitar.lyricUrl}}</a></li>
                 <li>Learned Song: {{guitar.learnedSong}}</li>
 
-
-                <a href="#" ng-click="(ctrl.indexOfEditFormToShow === $index) ? ctrl.indexOfEditFormToShow = null : ctrl.indexOfEditFormToShow = $index">Edit This Entry</a>
+				<button ng-click='ctrl.deleteGuitar(guitar._id)'>Delete This Entry</button>
+                <button><a href="#" ng-click="(ctrl.indexOfEditFormToShow === $index) ? ctrl.indexOfEditFormToShow = null : ctrl.indexOfEditFormToShow = $index">Edit This Entry</a></button>
                     <form ng-if="$index === ctrl.indexOfEditFormToShow" ng-submit="ctrl.editGuitar(guitar)">
-                    Name: <input type="text" ng-model="ctrl.updatedName" placeholder="name">
-                    Artist:<input type="text" ng-model="ctrl.updatedArtist" placeholder="artist name">
-                    Video Url: <input type="text" ng-model="ctrl.updatedUrl" placeholder="song video url">
-                    Tab Url:<input type="text" ng-model="ctrl.updatedtabUrl" placeholder="tab url">
-                    Lyric Url: <input type="text" ng-model="ctrl.updatedlyricUrl" placeholder="lyric url">
+                    Song: <input type="text" ng-model="ctrl.updatedName" placeholder="Name">
+                    Artist:<input type="text" ng-model="ctrl.updatedArtist" placeholder="Artist">
+                    Video: <input type="text" ng-model="ctrl.updatedUrl" placeholder="Video Url">
+                    Tab:<input type="text" ng-model="ctrl.updatedtabUrl" placeholder="Tab Url">
+                    Lyrics: <input type="text" ng-model="ctrl.updatedlyricUrl" placeholder="Lyric Url">
                     Learned Song: <input type="checkbox" ng-model="ctrl.updatedlearnedSong" value="Learned Song">
                     <input type="submit" name="" value="Edit">
                 </form>
