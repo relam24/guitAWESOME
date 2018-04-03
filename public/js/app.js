@@ -49,17 +49,17 @@ app.controller("GuitarController", ["$http", function($http){
 
     //edit song entry
     this.editGuitar = (guitar) => {
-        guitar.learnedSong = !guitar.learnedSong;
+        this.learnedSong = false;
         $http({
             method:'PUT',
-            url:'/guitars/' + guitar_.id,
+            url:'/guitar/' + guitar._id,
             data: {
                 name: this.updatedName,
                 artist: this.updatedArtist,
                 url: this.updatedUrl,
                 tabUrl: this.updatedtabUrl,
                 lyricUrl: this.updatedlyricUrl,
-                learnedSong: {learnedSong: this.updatedlearnedSong}
+                learnedSong: this.updatedlearnedSong
             }
         }).then( response => {
             this.getGuitar();
@@ -67,5 +67,7 @@ app.controller("GuitarController", ["$http", function($http){
             console.error(error);
         }).catch(err => console.log('Catch', error))
     }
+
+    this.getGuitar();
 
 }]);
