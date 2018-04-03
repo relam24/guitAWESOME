@@ -8,7 +8,25 @@
         <link rel="stylesheet" href="/css/app.css">
     </head>
     <body ng-controller="GuitarController as ctrl">
-		<button ng-click='ctrl.getSignedInUser()'>Log In</button>
+<!-- Created DIV for Auth Use. Check to see if it would work -->
+<!--Log In-->
+		<div ng-controller="AuthController as auth">
+		<button ng-click='auth.getSignedInUser()'>Log In</button>
+		<form ng-submit='auth.logIn()'>
+			<input type='text' ng-model='auth.username' />
+			<input type='password' ng-model='auth.password' />
+			<input type='submit' value='Log In' />
+		</form>
+<!--Create User-->
+		<button>Create User</button>
+		<form ng-submit='auth.createdUser()'>
+			<input type='text' ng-model='auth.username' />
+			<input type='password' ng-mode='auth.password' />
+			<input type='submit' value='Create User' />
+		</form>
+		</div>
+<!-- Create Guitar------------>
+		<div>
         <form ng-submit="ctrl.createGuitar()">
             Song: <input type="text" ng-model="ctrl.createForm.name" placeholder="Name">
             Artist:<input type="text" ng-model="ctrl.createForm.artist" placeholder="Artist">
@@ -18,6 +36,8 @@
             Learned Song: <input type="checkbox" ng-model="ctrl.createForm.learnedSong" value="Learned Song">
             <input type="submit" name="" value="Add New Song">
         </form>
+		</div>
+<!-- List to be Displayed --->
         <div ng-repeat="guitar in ctrl.guitars" class="songs">
             <ul>
                 <li><a href="{{guitar.url}}">{{guitar.name}}</a></li>
@@ -25,7 +45,7 @@
                 <li><a href="{{guitar.tabUrl}}">{{guitar.tabUrl}}</a></li>
                 <li><a href="{{guitar.lyricUrl}}">{{guitar.lyricUrl}}</a></li>
                 <li>Learned Song: {{guitar.learnedSong}}</li>
-
+<!-- Updated/Edit list and Delete Button--------------------->
 				<button ng-click='ctrl.deleteGuitar(guitar._id)'>Delete This Entry</button>
                 <button><a href="#" ng-click="(ctrl.indexOfEditFormToShow === $index) ? ctrl.indexOfEditFormToShow = null : ctrl.indexOfEditFormToShow = $index">Edit This Entry</a></button>
                     <form ng-if="$index === ctrl.indexOfEditFormToShow" ng-submit="ctrl.editGuitar(guitar)">

@@ -1,9 +1,6 @@
 const app = angular.module('GuitarApp', []);
-app.controller('GuitarController', ['$http', function ($http) {
-	this.createForm = {};
-	this.guitar = '';
-
-// Created users
+app.controller('AuthController', ['$http', function ($http) {
+	// Created users
 	$http({
 		method: 'POST',
 		url: '/users',
@@ -13,7 +10,7 @@ app.controller('GuitarController', ['$http', function ($http) {
 		}
 	});
 
-// Created sessions
+	// Created sessions
 	$http({
 		method: 'POST',
 		url: '/sessions',
@@ -32,6 +29,53 @@ app.controller('GuitarController', ['$http', function ($http) {
 		});
 	};
 
+	this.createdUser = () => {
+		$http({
+			method: 'POST',
+			url: '/users',
+			data: {
+				username: this.username,
+				password: this.password
+			}
+		}).then(response => {
+			console.log(response);
+		}, error => {
+			console.log(error);
+		}).catch(error => console.error('Catch: ', error));
+	};
+
+	this.logIn = () => {
+		$http({
+			method: 'POST',
+			url: '/sessions',
+			data: {
+				username: this.username,
+				password: this.password
+			}
+		}).then(response => {
+			console.log(response);
+		}, error => {
+			console.log(error);
+		}).catch(error => console.error('Catch: ', error));
+	};
+
+	this.goApp = () => {
+		const controller = this;
+		$http({
+			method: 'GET',
+			url: '/app'
+		}).then(response => {
+			controller.loggedInUsername = response.data.username;
+		}, error => {
+			console.log(error);
+		}).catch(error => console.error('Catch: ', error));
+	};
+}]);
+// EVERYTHING ABOVE HERE IS LOGIN/CREATEUSER/AUTH
+// =====================================================================
+app.controller('GuitarController', ['$http', function ($http) {
+	this.createForm = {};
+	this.guitar = '';
 // create song entry
 	this.createGuitar = () => {
 		$http({
