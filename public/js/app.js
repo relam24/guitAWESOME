@@ -14,7 +14,7 @@ app.controller('GuitarController', ['$http', function ($http) {
 		}, error => {
 			console.error(error);
 		}).catch(err => console.error('Catch: ', err));
-	}
+	};
 // get index of songs
 	this.getGuitar = () => {
 		$http({
@@ -24,7 +24,7 @@ app.controller('GuitarController', ['$http', function ($http) {
 			this.guitars = response.data;
 		}, error => {
 			console.error(error);
-		}).catch(err => console.error('Catch: ', err))
+		}).catch(err => console.error('Catch: ', err));
 	};
 	this.getGuitar();
 // delete song entry
@@ -36,7 +36,7 @@ app.controller('GuitarController', ['$http', function ($http) {
 			const removeByIndex = this.guitars.findIndex(guitar =>
             guitar._id === id);
 			this.guitars.splice(removeByIndex, 1);
-		}).catch(err => console.error('Catch: ', err))
+		}).catch(err => console.error('Catch: ', err));
 	};
 // edit song entry
 	this.editGuitar = (guitar) => {
@@ -56,7 +56,7 @@ app.controller('GuitarController', ['$http', function ($http) {
 			this.getGuitar();
 		}, error => {
 			console.error(error);
-		}).catch(err => console.log('Catch', error))
-	}
+		}).catch(err => console.log('Catch', error));
+	};
 	this.getGuitar();
 }]);
