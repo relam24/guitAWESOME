@@ -26,6 +26,18 @@
                 <li>{{guitar.tabUrl}}</li>
                 <li>{{guitar.lyricUrl}}</li>
                 <li>Learned Song: {{guitar.learnedSong}}</li>
+
+
+                <a href="#" ng-click="(ctrl.indexOfEditFormToShow === $index) ? ctrl.indexOfEditFormToShow = null : ctrl.indexOfEditFormToShow = $index">Edit This Entry</a>
+                    <form ng-if="$index === ctrl.indexOfEditFormToShow" ng-submit="ctrl.editGuitar(guitar)">
+                    Name: <input type="text" ng-model="ctrl.updatedName" placeholder="name">
+                    Artist:<input type="text" ng-model="ctrl.updatedArtist" placeholder="artist name">
+                    Video Url: <input type="text" ng-model="ctrl.updatedUrl" placeholder="song video url">
+                    Tab Url:<input type="text" ng-model="ctrl.updatedtabUrl" placeholder="tab url">
+                    Lyric Url: <input type="text" ng-model="ctrl.updatedlyricUrl" placeholder="lyric url">
+                    Learned Song: <input type="checkbox" ng-model="ctrl.updatedlearnedSong" value="Learned Song">
+                    <input type="submit" name="" value="Edit">
+                </form>
             </ul>
         </div>
     </body>
