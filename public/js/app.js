@@ -1,24 +1,5 @@
 const app = angular.module('GuitarApp', []);
 app.controller('AuthController', ['$http', function ($http) {
-	// Created users
-	$http({
-		method: 'POST',
-		url: '/users',
-		data: {
-			username: 'rachel',
-			password: 'guitar'
-		}
-	});
-
-	// Created sessions
-	$http({
-		method: 'POST',
-		url: '/sessions',
-		data: {
-			username: 'rachel',
-			password: 'guitar'
-		}
-	});
 
 	this.getSignedInUser = () => {
 		$http({
