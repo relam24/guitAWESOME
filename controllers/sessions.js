@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 const User = require('../models/users.js');
 const bcrypt = require('bcrypt');
+const guitarScraper = require('ultimate-guitar-scraper');
 
 router.post('/', (req, res) => {
 	User.findOne({ username: req.body.username }, (err, foundUser) => {

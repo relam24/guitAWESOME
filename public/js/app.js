@@ -57,6 +57,12 @@ app.controller('AuthController', ['$http', function ($http) {
 app.controller('GuitarController', ['$http', function ($http) {
 	this.createForm = {};
 	this.guitar = '';
+	this.baseURL = 'http://www.ultimate-guitar.com/?';
+	this.query = 't=';
+	this.tabUrl = this.baseURL + this.query + this.artist;
+	this.artist = '';
+	this.name = '';
+
 // create song entry
 	this.createGuitar = () => {
 		$http({
