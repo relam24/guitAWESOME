@@ -53,9 +53,7 @@
                 <li>{{guitar.artist}}</li>
                 <li><a href="{{guitar.tabUrl}}">Tab</a></li>
                 <li><a href="{{guitar.lyricUrl}}">Lyrics</a></li>
-				<div>s
                 <li>Learned Song: {{guitar.learnedSong}}</li>
-				</div>
 <!-- Updated/Edit list and Delete Button--------------------->
 				<button class='delete' ng-click='ctrl.deleteGuitar(guitar._id)'>Delete This Entry</button>
                 <button class='edit' ng-click="(ctrl.indexOfEditFormToShow === $index) ? ctrl.indexOfEditFormToShow = null : ctrl.indexOfEditFormToShow = $index">Edit This Entry</button>
