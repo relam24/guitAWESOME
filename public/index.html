@@ -12,13 +12,16 @@
 		</div>
 		<!--Log In-->
 			<div class='login'>
-		        Log In:
+				<div ng-show='ctrl.showForm'>
 				<form ng-submit='ctrl.logIn()'>
 		            <label for="username">Username:</label>
 					<input type='text' ng-model='ctrl.user.username' />
 		            <label for="password">Password:</label>
 					<input type='password'autocomplete="off" ng-model='ctrl.user.password' />
-		            <input type='submit' value='Log In' />
+				</div>
+					<div>
+		            <input ng-hide='ctrl.showForm' type='submit' value='Log In' />
+					</div>
 				</form>
 		    </div><br>
 		<!-- Log Out -->
@@ -31,13 +34,16 @@
 		</div>
 <!--Create User-->
     <div class='createuser'>
-        Create User:
+        <div ng-show='ctrl.showForm'>
 		<form ng-submit='ctrl.createUser()'>
             <label for="username">Username:</label>
 			<input type='text' ng-model='ctrl.createUserForm.username' />
             <label for="password">Password:</label>
 			<input type='password' autocomplete="off" ng-model='ctrl.createUserForm.password' />
-			<input type='submit' value='Create User' />
+			</div>
+			<div>
+			<input ng-hide='ctrl.showForm' type='submit' value='Create User' />
+			</div>
 		</form>
     </div><br>
 
