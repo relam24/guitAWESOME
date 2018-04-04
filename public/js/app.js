@@ -1,67 +1,53 @@
 const app = angular.module('GuitarApp', []);
-app.controller('AuthController', ['$http', function ($http) {
 
-	this.getSignedInUser = () => {
-		$http({
-			method: 'GET',
-			url: '/app'
-		}).then(response => {
-			console.log(response);
-		});
-	};
+app.controller('GuitarController', ['$http', function ($http) {
+	this.createForm = {};
+	this.guitar = '';
+	// declare user
+	this.createUserForm = {};
+	this.user = {};
 
-	this.createdUser = () => {
+// create user
+	this.createUser = () => {
 		$http({
 			method: 'POST',
 			url: '/users',
-			data: {
-				username: this.username,
-				password: this.password
-			}
+			data: this.createUserForm
 		}).then(response => {
 			console.log(response);
+			this.createUserForm = {};
 		}, error => {
 			console.log(error);
 		}).catch(error => console.error('Catch: ', error));
 	};
-
+// log in
 	this.logIn = () => {
 		$http({
 			method: 'POST',
 			url: '/sessions',
+			data: this.user
+		}).then(response => {
+			console.log(this.user);
+			this.loggedInUsername = this.user.username;
+			this.user = {};
+		}, error => {
+			console.log(error);
+		}).catch(error => console.error('Catch: ', error));
+	};
+// log out
+	this.logOut = () => {
+		$http({
+			method: 'DELETE',
+			url: '/sessions',
 			data: {
-				username: this.username,
-				password: this.password
+				username: this.user.username,
+				password: this.user.password
 			}
 		}).then(response => {
+			this.loggedInUsername = '';
 			console.log(response);
-		}, error => {
-			console.log(error);
-		}).catch(error => console.error('Catch: ', error));
+		});
 	};
-
-	this.goApp = () => {
-		const controller = this;
-		$http({
-			method: 'GET',
-			url: '/app'
-		}).then(response => {
-			controller.loggedInUsername = response.data.username;
-		}, error => {
-			console.log(error);
-		}).catch(error => console.error('Catch: ', error));
-	};
-}]);
-// EVERYTHING ABOVE HERE IS LOGIN/CREATEUSER/AUTH
-// =====================================================================
-app.controller('GuitarController', ['$http', function ($http) {
-	this.createForm = {};
-	this.guitar = '';
-	this.baseURL = 'http://www.ultimate-guitar.com/?';
-	this.query = 't=';
-	this.tabUrl = this.baseURL + this.query + this.artist;
-	this.artist = '';
-	this.name = '';
 
 // create song entry
 	this.createGuitar = () => {

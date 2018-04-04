@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 const guitarScraper = require('ultimate-guitar-scraper');
 const Guitar = require('../models/guitar.js');
+const session = require('express-session');
 
 // index route
 router.get('/', (req, res) => {

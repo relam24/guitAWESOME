@@ -9,39 +9,49 @@
     </head>
     <body class='body' ng-controller="GuitarController as ctrl">
 		<div class='header'>
-<!-- Created DIV for Auth Use. Check to see if it would work -->
-<!--Log In-->
-		<div ng-controller="AuthController as auth">
+		</div>
+		<!--Log In-->
 			<div class='login'>
-			<form ng-click='auth.getSignedInUser()' ng-submit='auth.logIn()'>
-				<input type='text' ng-model='auth.username' />
-				<input type='password' ng-model='auth.password' />
-				<input type='submit' value='Log In' />
-			</form>
-			</div>
+		        Log In:
+				<form ng-submit='ctrl.logIn()'>
+		            <label for="username">Username:</label>
+					<input type='text' ng-model='ctrl.user.username' />
+		            <label for="password">Password:</label>
+					<input type='password'autocomplete="off" ng-model='ctrl.user.password' />
+		            <input type='submit' value='Log In' />
+				</form>
+		    </div><br>
+		<!-- Log Out -->
+		    <div>
+		        <button ng-click='ctrl.logOut()'>Log Out</button>
+		    </div>
+		<!-- Display Logged In Username -->
+		<div>
+		    <h1 ng-if="ctrl.loggedInUsername">You are logged in {{ctrl.loggedInUsername}}</h1>
+		</div>
 <!--Create User-->
-			<div class='createuser'>
-			<form ng-submit='auth.createdUser()'>
-				<input type='text' ng-model='auth.username' />
-				<input type='password' ng-mode='auth.password' />
-				<input type='submit' value='Create User' />
-			</form>
-			</div>
-		</div>
-		</div>
+    <div class='createuser'>
+        Create User:
+		<form ng-submit='ctrl.createUser()'>
+            <label for="username">Username:</label>
+			<input type='text' ng-model='ctrl.createUserForm.username' />
+            <label for="password">Password:</label>
+			<input type='password' autocomplete="off" ng-model='ctrl.createUserForm.password' />
+			<input type='submit' value='Create User' />
+		</form>
+    </div><br>
+
+
 <!-- Create Guitar------------>
-		<div class='wrapper'>
+	<div class='wrapper'>
 		<div class='createforms'>
-<!-- figure out how to use hide and show ------------>
-			<div ng-hide='createForm' ng-show='!createForm'>
-        <form ng-class ='createform' ng-submit="ctrl.createGuitar()">
-            Song: <input class='songs' type="text" ng-model="ctrl.createForm.name" placeholder="Name">
-            Artist:<input class='artist'type="text" ng-model="ctrl.createForm.artist" placeholder="Artist">
-            Video: <input class='video' type="text" ng-model="ctrl.createForm.url" placeholder="Video Url">
-            Tab:<input class='tab' type="text" ng-model="ctrl.createForm.tabUrl" placeholder="Tab Url">
-            Lyrics: <input class='lyrics' type="text" ng-model="ctrl.createForm.lyricUrl" placeholder="Lyric Url">
-            Learned Song: <input class='learned' type="checkbox" ng-model="ctrl.createForm.learnedSong" value="Learned Song">
-			</div>
+        <form ng-class-'createform' ng-submit="ctrl.createGuitar()">
+            Song: <input type="text" ng-model="ctrl.createForm.name" placeholder="Name">
+            Artist:<input type="text" ng-model="ctrl.createForm.artist" placeholder="Artist">
+            Video: <input type="text" ng-model="ctrl.createForm.url" placeholder="Video Url">
+            Tab:<input type="text" ng-model="ctrl.createForm.tabUrl" placeholder="Tab Url">
+            Lyrics: <input type="text" ng-model="ctrl.createForm.lyricUrl" placeholder="Lyric Url">
+            Learned Song: <input type="checkbox" ng-model="ctrl.createForm.learnedSong" value="Learned Song">
             <input type="submit" name="" value="Add New Song">
         </form>
 		</div>
@@ -68,6 +78,7 @@
                 </form>
             </ul>
         </div>
+		</div>
 	</div>
     </body>
 </html>
