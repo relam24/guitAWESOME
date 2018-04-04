@@ -62,18 +62,16 @@ li {
 }
 
 .login {
-	background-color: yellow;
-	flex-direction: column;
+	flex-direction: row;
 }
 
 .createuser {
-	background-color: orange;
-	flex-direction: column;
+	flex-direction: row;
 }
 
 .createforms {
 	background-color: purple;
-	flex-direction: column;
+	flex-direction: row;
 }
 
 .edit {
