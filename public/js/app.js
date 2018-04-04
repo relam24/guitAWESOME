@@ -1,79 +1,54 @@
 const app = angular.module('GuitarApp', []);
-app.controller('AuthController', ['$http', function ($http) {
-// get signed in user
-	this.getSignedInUser = () => {
-		$http({
-			method: 'GET',
-			url: '/app'
-			}).then(response => {
-				console.log(response);
-				this.loggedInUsername = response.data.username;
-			});
-		};
+
+app.controller('GuitarController', ['$http', function ($http) {
+	this.createForm = {};
+	this.guitar = '';
+	//declare user
+	this.createUserForm = {};
+	this.user = {};
+
 //create user
-	this.createdUser = () => {
+	this.createUser = () => {
 		$http({
-			method: 'POST',
-			url: '/users',
-			data: {
-				username: this.username,
-				password: this.password
-			}
-		}).then(response => {
-			console.log(response);
-		}, error => {
-			console.log(error);
-		}).catch(error => console.error('Catch: ', error));
-	};
+		method: 'POST',
+		url: '/users',
+		data: this.createUserForm
+	}).then(response => {
+		console.log(response);
+		this.createUserForm = {}
+	}, error => {
+		console.log(error);
+	}).catch(error => console.error('Catch: ', error));
+		};
 //log in
 	this.logIn = () => {
 		$http({
 			method: 'POST',
 			url: '/sessions',
-			data: {
-				username: this.username,
-				password: this.password
-			}
+			data: this.user,
 		}).then(response => {
-			console.log(response);
-			// this.loggedInUsername = response.data.username;
-			this.getSignedInUser()
+			console.log(this.user);
+			this.loggedInUsername = this.user.username;
+			this.user={}
 		}, error => {
 			console.log(error);
 		}).catch(error => console.error('Catch: ', error));
-	};
+		};
+//log out
+this.logOut =() => {
+	$http({
+		method: 'DELETE',
+		url:'/sessions',
+		data: {
+			username: this.user.username,
+			password: this.user.password
+		}
+	}).then(response => {
+		this.loggedInUsername = "",
+		console.log(response);
+	})
+}
 
-	// this.goApp = () => {
-	// 	// const controller = this;
-	// 	$http({
-	// 		method: 'GET',
-	// 		url: '/app'
-	// 	}).then(response => {
-	// 		console.log(response);
-	// 		this.loggedInUsername = response.data.username;
-	// 	}, error => {
-	// 		console.log(error);
-	// 	}).catch(error => console.error('Catch: ', error));
-	// };
-
-	this.logOut =() => {
-		$http({
-			method: 'DELETE',
-			url:'/sessions',
-			data: {
-				username: this.username,
-				password: this.password
-			}
-		}).then(response => {
-			console.log(response);
-		})
-	}
-}]);
-// EVERYTHING ABOVE HERE IS LOGIN/CREATEUSER/AUTH
-// =====================================================================
-app.controller('GuitarController', ['$http', function ($http) {
-	this.createForm = {};
-	this.guitar = '';
 // create song entry
 	this.createGuitar = () => {
 		$http({
@@ -131,4 +106,23 @@ app.controller('GuitarController', ['$http', function ($http) {
 		}).catch(err => console.log('Catch', error));
 	};
 	this.getGuitar();
+
+
+
+	// this.goApp = () => {
+	// 	// const controller = this;
+	// 	$http({
+	// 		method: 'GET',
+	// 		url: '/app'
+	// 	}).then(response => {
+	// 		console.log(response);
+	// 		this.loggedInUsername = response.data.username;
+	// 	}, error => {
+	// 		console.log(error);
+	// 	}).catch(error => console.error('Catch: ', error));
+	// };
+
+
+// EVERYTHING ABOVE HERE IS LOGIN/CREATEUSER/AUTH
+// =====================================================================
 }]);

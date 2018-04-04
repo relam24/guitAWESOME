@@ -21,16 +21,16 @@ app.use('/sessions', sessionsController);
 const guitarController = require('./controllers/guitar.js');
 app.use('/guitar', guitarController);
 
-app.get('/app', (req, res) => {
-	if (req.session.currentuser) {
-		res.json(req.session.currentuser);
-	} else {
-		res.status(401).json({
-			status: 401,
-			message: 'Not Logged In'
-		});
-	};
-});
+// app.get('/sessions', (req, res) => {
+// 	if (req.session.currentuser) {
+// 		res.json(req.session.currentuser);
+// 	} else {
+// 		res.status(401).json({
+// 			status: 401,
+// 			message: 'Not Logged In'
+// 		});
+// 	};
+// });
 
 const mongoURI = process.env.MONGODB_URI || 'mongodb://localhost:27017/guitAWESOME';
 mongoose.connect(mongoURI);
