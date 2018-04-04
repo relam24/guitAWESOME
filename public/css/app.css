@@ -1,0 +1,93 @@
+.body {
+	display: flex;
+	position: relative;
+	align-items: center;
+	align-content: center;
+	justify-content: center;
+	flex-wrap: wrap;
+	width: 100%;
+	background-image: url(https://images.unsplash.com/photo-1512596114925-136d26cb6bbe?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=14085e3e9e95b52a207a2eaec04909bf&auto=format&fit=crop&w=800&q=60);
+	background-size: cover;
+	background-repeat: no-repeat;
+}
+
+.wrapper {
+	display: flex;
+	background-image: url(https://images.unsplash.com/photo-1517771778436-39f5763f5270?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=1a13e64c2ca5f8236aebd26c4226acf2&auto=format&fit=crop&w=800&q=60);
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+	height: 1000px;
+	width: 1100px;
+	flex-direction: column;
+	flex-flow: column;
+	border-radius: 8px;
+
+}
+
+.header {
+	height:600px;
+	width: 100%;
+	background-image: url(https://images.pexels.com/photos/4119/wood-bench-park-autumn.jpg?auto=compress&cs=tinysrgb&dpr=2&h=350);
+	flex-direction: column;
+	flex-flow: column;
+	justify-content: center;
+	background-repeat: no-repeat;
+	background-position: center;
+	border-radius: 10px;
+	top: 50px;
+    left: 50px;
+}
+
+.board {
+	flex-wrap: wrap;
+	flex-direction: row;
+	background-color: black;
+	width: 90%;
+	height: 100%;
+	align-items: center;
+	align-self: center;
+	opacity: 0.8;
+}
+
+li {
+	flex-wrap: wrap;
+	flex-direction: row;
+	background-color: gray;
+	list-style-type: none;
+	text-align: center;
+	width: 96%;
+	align-items: center;
+	align-self: center;
+}
+
+.login {
+	background-color: yellow;
+	flex-direction: column;
+}
+
+.createuser {
+	background-color: orange;
+	flex-direction: column;
+}
+
+.createforms {
+	background-color: purple;
+	flex-direction: column;
+}
+
+.edit {
+	align-items: center;
+	align-self: center;
+	justify-content: center;
+	background-color: white;
+	color: black;
+	flex-direction: column;
+}
+
+.delete {
+	background-color: white;
+	color: black;
+	flex-direction: column;
+
+}
