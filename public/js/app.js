@@ -27,6 +27,7 @@ app.controller('GuitarController', ['$http', function ($http) {
 			url: '/sessions',
 			data: this.user
 		}).then(response => {
+			// console.log(response.data);
 			console.log(this.user);
 			this.loggedInUsername = this.user.username;
 			this.user = {};

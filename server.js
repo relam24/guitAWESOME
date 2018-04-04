@@ -3,6 +3,7 @@ const app = express();
 const mongoose = require('mongoose');
 const guitarScraper = require('ultimate-guitar-scraper');
 const session = require('express-session');
+const bcrypt = require('bcrypt');
 
 app.use(express.json());
 app.use(express.static('public'));
