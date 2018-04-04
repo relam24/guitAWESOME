@@ -45,15 +45,19 @@
 <!-- Create Guitar------------>
 	<div class='wrapper'>
 		<div class='createforms'>
-        <form ng-class-'createform' ng-submit="ctrl.createGuitar()">
+			<div ng-show='ctrl.showForm'>
+        <form ng-class='createform' ng-submit="ctrl.createGuitar()">
             Song: <input type="text" ng-model="ctrl.createForm.name" placeholder="Name">
             Artist:<input type="text" ng-model="ctrl.createForm.artist" placeholder="Artist">
             Video: <input type="text" ng-model="ctrl.createForm.url" placeholder="Video Url">
             Tab:<input type="text" ng-model="ctrl.createForm.tabUrl" placeholder="Tab Url">
             Lyrics: <input type="text" ng-model="ctrl.createForm.lyricUrl" placeholder="Lyric Url">
             Learned Song: <input type="checkbox" ng-model="ctrl.createForm.learnedSong" value="Learned Song">
-            <input type="submit" name="" value="Add New Song">
-        </form>
+			</div>
+		<div>
+		<input ng-hide='ctrl.showForm' type="submit" name="" value="Add New Song">
+		</div>
+		</form>
 		</div>
 <!-- List to be Displayed --->
 		<div class='board'>

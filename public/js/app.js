@@ -51,6 +51,7 @@ app.controller('GuitarController', ['$http', function ($http) {
 
 // create song entry
 	this.createGuitar = () => {
+		this.showForm = false;
 		$http({
 			method: 'POST',
 			url: '/guitar',
