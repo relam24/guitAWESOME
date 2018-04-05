@@ -10,6 +10,7 @@
     </head>
     <body class='body' ng-controller="GuitarController as ctrl">
 		<div class='header'>
+			<h1 class='title'>Relax and Learn</h1>
 		<!--Log In-->
 			<div class='login'>
 				<div ng-show='ctrl.showForm'>
@@ -30,7 +31,7 @@
 		    </div>
 		<!-- Display Logged In Username -->
 		<div>
-		    <h1 ng-if="ctrl.loggedInUsername">You are logged in {{ctrl.loggedInUsername}}</h1>
+		    <h1 class='h1user' ng-if="ctrl.loggedInUsername">You are logged in {{ctrl.loggedInUsername}}</h1>
 		</div>
 <!--Create User-->
     <div class='createuser'>

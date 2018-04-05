@@ -39,6 +39,7 @@
 	border-radius: 4px;
 	border: 5px solid black;
 	opacity: 0.9;
+	color: rgb(228,183,106);
 }
 
 .board {
@@ -64,18 +65,24 @@ li {
 	align-items: center;
 	align-self: center;
 	border-radius: 4px;
-	border: 1px solid black;
+	border: 1px solid rgb(109,92,72);
 }
 
 
 /* ul {
-    -moz-column-count: 7;
+    -moz-column-count: 6;
     -moz-column-gap: 0px;
-    -webkit-column-count: 7;
+    -webkit-column-count: 6;
     -webkit-column-gap: 0px;
-    column-count: 7;
+    column-count: 6;
     column-gap: 0px;
 } */
+
+.h1user {
+	color: rgb(28,69,81);
+	float: right;
+	font-size: 16px;
+}
 
 .login {
 	flex-direction: row;
@@ -110,11 +117,11 @@ li {
 	flex-direction: row;
 	background-color: black;
 	color: rgb(109,92,72);
-	text-align: right;
+
 }
 
 .edit:hover {
-    color: rgb(85,98,82);
+    color: rgb(228,183,106);
 }
 
 .delete {
@@ -125,11 +132,10 @@ li {
 	align-self: center;
 	justify-content: center;
 	color: rgb(109,92,72);
-	text-align: right;
 }
 
 .delete:hover {
-    color: rgb(85,98,82);
+    color: rgb(228,183,106);
 }
 
 /* unvisited link */
@@ -144,7 +150,7 @@ a:visited {
 
 /* mouse over link */
 a:hover {
-    color: rgb(228,183,106);
+    color: rgb(109,92,72);
 }
 
 /* selected link */
