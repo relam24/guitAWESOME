@@ -10,20 +10,7 @@
 	background-size: cover;
 	background-repeat: no-repeat;
 	font-family: 'Covered By Your Grace', cursive;
-}
-
-.wrapper {
-	display: flex;
-	background-image: url(https://images.unsplash.com/photo-1517771778436-39f5763f5270?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=1a13e64c2ca5f8236aebd26c4226acf2&auto=format&fit=crop&w=800&q=60);
-	background-position: center;
-	background-repeat: no-repeat;
-	background-size: cover;
-	height: 1000px;
-	width: 1094px;
-	flex-direction: column;
-	flex-flow: column;
-	border-radius: 4px;
-	border: 2px solid black;
+	color: white;
 }
 
 .header {
@@ -40,6 +27,50 @@
 	border: 5px solid black;
 	opacity: 0.9;
 	color: rgb(228,183,106);
+}
+
+.wrapper {
+	display: flex;
+	background-image: url(https://images.unsplash.com/photo-1517771778436-39f5763f5270?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=1a13e64c2ca5f8236aebd26c4226acf2&auto=format&fit=crop&w=800&q=60);
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+	height: 1000px;
+	width: 1094px;
+	flex-direction: column;
+	flex-flow: column;
+	border-radius: 4px;
+	border: 2px solid black;
+}
+
+#modal{
+	background-color: rgba(1, 1, 1, 0.2);
+	position: absolute;
+	margin-top: 42px;
+	margin-left: 100px;
+	height: 20%;
+	width: 70%;
+	z-index: 1;
+	overflow: auto;
+	color:white;
+	font-size: 30px;
+}
+
+#modal-forms{
+	background: white;
+	height: 350px;
+	width: 550px;
+	border-radius: 2px;
+	margin: 150px auto;
+	box-shadow: 0 2px 2px black;
+}
+
+#hi{
+text-indent: 100px;
+margin-top: 30px;}
+
+#logout{
+	margin: 0 auto;
 }
 
 .board {
@@ -107,6 +138,7 @@ li {
 	flex-direction: row;
 	align-items: center;
 	align-self: center;
+	color: white;
 }
 
 .edit {
