@@ -6,24 +6,27 @@
         <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js" charset="utf-8"></script>
         <script src="/js/app.js" charset="utf-8"></script>
         <link rel="stylesheet" href="/css/app.css">
+		<link href="https://fonts.googleapis.com/css?family=Covered+By+Your+Grace" rel="stylesheet">
     </head>
     <body class='body' ng-controller="GuitarController as ctrl">
 		<div class='header'>
-		</div>
 		<!--Log In-->
 			<div class='login'>
-		        Log In:
+				<div ng-show='ctrl.showForm'>
 				<form ng-submit='ctrl.logIn()'>
 		            <label for="username">Username:</label>
 					<input type='text' ng-model='ctrl.user.username' />
 		            <label for="password">Password:</label>
 					<input type='password'autocomplete="off" ng-model='ctrl.user.password' />
-		            <input type='submit' value='Log In' />
+				</div>
+					<div>
+		            <input ng-hide='ctrl.showForm' type='submit' value='Log In' />
+					</div>
 				</form>
-		    </div><br>
+		    </div>
 		<!-- Log Out -->
 		    <div>
-		        <button ng-click='ctrl.logOut()'>Log Out</button>
+		        <button class='logout' ng-click='ctrl.logOut()'>Log Out</button>
 		    </div>
 		<!-- Display Logged In Username -->
 		<div>
@@ -31,29 +34,37 @@
 		</div>
 <!--Create User-->
     <div class='createuser'>
-        Create User:
+        <div ng-show='ctrl.showForm'>
 		<form ng-submit='ctrl.createUser()'>
             <label for="username">Username:</label>
 			<input type='text' ng-model='ctrl.createUserForm.username' />
             <label for="password">Password:</label>
 			<input type='password' autocomplete="off" ng-model='ctrl.createUserForm.password' />
-			<input type='submit' value='Create User' />
+			</div>
+			<div>
+			<input ng-hide='ctrl.showForm' type='submit' value='Create User' />
+			</div>
 		</form>
     </div><br>
+</div><br />
 
 
 <!-- Create Guitar------------>
 	<div class='wrapper'>
 		<div class='createforms'>
-        <form ng-class-'createform' ng-submit="ctrl.createGuitar()">
+			<div ng-show='ctrl.showForm'>
+        <form ng-class='createform' ng-submit="ctrl.createGuitar()">
             Song: <input type="text" ng-model="ctrl.createForm.name" placeholder="Name">
             Artist:<input type="text" ng-model="ctrl.createForm.artist" placeholder="Artist">
             Video: <input type="text" ng-model="ctrl.createForm.url" placeholder="Video Url">
             Tab: <input type="text" ng-model="ctrl.createForm.tabUrl" placeholder="Tab Url">
             Lyrics: <input type="text" ng-model="ctrl.createForm.lyricUrl" placeholder="Lyric Url">
             Learned Song: <input type="checkbox" ng-model="ctrl.createForm.learnedSong" value="Learned Song">
-            <input type="submit" name="" value="Add New Song">
-        </form>
+			</div>
+		<div>
+		<input ng-hide='ctrl.showForm' type="submit" name="" value="Add New Song">
+		</div>
+		</form>
 		</div>
 <!-- List to be Displayed --->
 		<div class='board'>

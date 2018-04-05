@@ -13,6 +13,7 @@ app.controller('GuitarController', ['$http', function ($http) {
 	// }
 // create user
 	this.createUser = () => {
+		this.showForm = true;
 		$http({
 			method: 'POST',
 			url: '/users',
@@ -26,6 +27,7 @@ app.controller('GuitarController', ['$http', function ($http) {
 	};
 // log in
 	this.logIn = () => {
+		this.showForm = true;
 		$http({
 			method: 'POST',
 			url: '/sessions',
@@ -41,6 +43,7 @@ app.controller('GuitarController', ['$http', function ($http) {
 	};
 // log out
 	this.logOut = () => {
+		this.showForm = true;
 		$http({
 			method: 'DELETE',
 			url: '/sessions',
@@ -56,6 +59,7 @@ app.controller('GuitarController', ['$http', function ($http) {
 
 // create song entry
 	this.createGuitar = () => {
+		this.showForm = true;
 		$http({
 			method: 'POST',
 			url: '/guitar',
