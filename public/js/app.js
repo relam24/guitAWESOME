@@ -23,7 +23,6 @@ app.controller('GuitarController', ['$http', function ($http) {
 	};
 // log in
 	this.logIn = () => {
-		this.showForm = true;
 		$http({
 			method: 'POST',
 			url: '/sessions',
@@ -38,7 +37,6 @@ app.controller('GuitarController', ['$http', function ($http) {
 	};
 // log out
 	this.logOut = () => {
-		this.showForm = true;
 		$http({
 			method: 'DELETE',
 			url: '/sessions',
@@ -77,7 +75,6 @@ app.controller('GuitarController', ['$http', function ($http) {
 			console.error(error);
 		}).catch(err => console.error('Catch: ', err));
 	};
-	this.getGuitar();
 // delete song entry
 	this.deleteGuitar = (id) => {
 		$http({
