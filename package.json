@@ -4,7 +4,11 @@
   "description": "App that is dedicated to helping beginning musicians learn how to play by sharing chords and tabs along with youtube videos to play along to.",
   "main": "server.js",
   "dependencies": {
-    "express": "^4.16.3"
+    "bcrypt": "^1.0.3",
+    "express": "^4.16.3",
+    "express-session": "^1.15.6",
+    "mongoose": "^5.0.12",
+    "ultimate-guitar-scraper": "^1.0.1"
   },
   "devDependencies": {},
   "scripts": {
