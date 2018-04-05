@@ -3,7 +3,8 @@ const router = express.Router();
 const guitarScraper = require('ultimate-guitar-scraper');
 const Guitar = require('../models/guitar.js');
 const session = require('express-session');
-
+const User = require('../models/users.js');
+const bcrypt = require('bcrypt');
 // index route
 router.get('/', (req, res) => {
 	Guitar.find({}, (error, foundGuitar) => {
