@@ -2,8 +2,8 @@ const mongoose = require('mongoose');
 const guitarScraper = require('ultimate-guitar-scraper');
 
 const guitarSchema = new mongoose.Schema({
-	name: String,
-	artist: String,
+	name: {type: String, require: true},
+	artist: {type: String, require: true},
 	url: String,
 	tabUrl: {text: String, html: String},
 	lyricUrl: String,
