@@ -13,10 +13,10 @@ app.controller('GuitarController', ['$http', function ($http) {
     console.log(this.showInfo);
   }
   	//toggle edit song/guitar form
-	this.showEdit = false;
-	this.toggleEdit = () => {
-		this.showEdit = !this.showEdit;
-	}
+	// this.showEdit = false;
+	// this.toggleEdit = () => {
+	// 	this.showEdit = !this.showEdit;
+	// }
 
 // create user
 	this.createUser = () => {
