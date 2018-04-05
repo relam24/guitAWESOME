@@ -1,0 +1,249 @@
+.body {
+	display: flex;
+	position: relative;
+	align-items: center;
+	align-content: center;
+	justify-content: center;
+	flex-wrap: wrap;
+	width: 100%;
+	background-image: url(https://images.unsplash.com/photo-1512596114925-136d26cb6bbe?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=14085e3e9e95b52a207a2eaec04909bf&auto=format&fit=crop&w=800&q=60);
+	background-size: cover;
+	background-repeat: no-repeat;
+	font-family: 'Covered By Your Grace', cursive;
+}
+
+.wrapper {
+	display: flex;
+	background-image: url(https://images.unsplash.com/photo-1517771778436-39f5763f5270?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=1a13e64c2ca5f8236aebd26c4226acf2&auto=format&fit=crop&w=800&q=60);
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+	height: 1000px;
+	width: 1094px;
+	flex-direction: column;
+	flex-flow: column;
+	border-radius: 4px;
+	border: 2px solid black;
+	overflow: scroll;
+}
+
+.header {
+	height:380px;
+	width: 1088px;
+	background-image: url(https://images.unsplash.com/photo-1496303861503-f6ec4e50034e?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=b116b6efb341717a04244b7443659d6e&auto=format&fit=crop&w=800&q=60);
+	flex-direction: column;
+	flex-flow: column;
+	justify-content: center;
+	background-repeat: no-repeat;
+	background-position: top;
+	background-size: cover;
+	border-radius: 4px;
+	border: 5px solid black;
+	opacity: 0.9;
+	color: rgb(228,183,106);
+}
+
+.title{
+	margin-left: 100px;
+	font-size: 35px;
+}
+
+#modal{
+	background-color: rgba(1, 1, 1, 0.2);
+	position: absolute;
+	margin-top: 30px;
+	margin-left: 100px;
+	height: 15%;
+	width: 50%;
+	z-index: 1;
+	overflow: auto;
+	color:white;
+	font-size: 30px;
+}
+
+#modal-forms{
+	background: white;
+	height: 350px;
+	width: 550px;
+	border-radius: 2px;
+	margin: 150px auto;
+	box-shadow: 0 2px 2px black;
+}
+
+#hi{
+	margin-left: 100px;
+	font-family: 'Covered By Your Grace', cursive;
+	background-color: rgba(0,0,0,0.5);
+	color: white;
+	border: none;
+	font-family: 'Covered By Your Grace', cursive;
+	font-size: 35px;
+}
+
+#loginbtn{
+	background: none;
+	color: white;
+	border: none;
+	font-family: 'Covered By Your Grace', cursive;
+	font-size: 20px;
+}
+
+#cruserbtn{
+	background: none;
+	color: white;
+	border: none;
+	font-family: 'Covered By Your Grace', cursive;
+	font-size: 20px;
+}
+
+#logout{
+	margin-left: 100px;
+	margin-bottom: 0px;
+	padding: 1em;
+	background: none;
+	color: white;
+	border: none;
+	font-family: 'Covered By Your Grace', cursive;
+	font-size: 25px;
+}
+
+#addnewbtn{
+	background: none;
+	color: black;
+	border: none;
+	font-family: 'Covered By Your Grace', cursive;
+	font-size: 25px;
+}
+
+#submiteditsbtn{
+	background: none;
+	color: rgb(228,183,106);
+	border: none;
+	font-family: 'Covered By Your Grace', cursive;
+	font-size: 20px;
+}
+
+.board {
+	flex-wrap: wrap;
+	flex-direction: row;
+	background-color: black;
+
+	/* min-height: 1000px; */
+
+	align-items: center;
+	align-self: center;
+	opacity: 0.8;
+	border-radius: 4px;
+	border-top: 20px solid rgba(0,0,0,0.8);
+	margin-left: 40px;
+}
+
+li {
+	flex-wrap: wrap;
+	flex-direction: row;
+	background-color: rgb(28,69,81);
+	color: rgb(228,183,106);
+	list-style-type: none;
+	text-align: center;
+	width: 96%;
+	align-items: center;
+	align-self: center;
+	border-radius: 4px;
+	border: 1px solid rgb(109,92,72);
+	margin-top: 5px;
+}
+
+.list.ng-scope > ul {
+	margin-top: 50px;
+}
+
+/* ul {
+    -moz-column-count: 6;
+    -moz-column-gap: 0px;
+    -webkit-column-count: 6;
+    -webkit-column-gap: 0px;
+    column-count: 6;
+    column-gap: 0px;
+} */
+
+.h1user {
+	color: rgb(228,183,106);
+	margin-left: 100px;
+	font-size: 77px;
+}
+
+.login {
+	flex-direction: row;
+	align-items: center;
+	align-self: center;
+}
+
+.logout {
+	flex-direction: row;
+	align-items: center;
+	align-self: center;
+}
+
+.createuser {
+	flex-direction: row;
+	flex-direction: row;
+	align-items: center;
+	align-self: center;
+}
+
+.createforms {
+	margin-left: 50px;
+	flex-direction: row;
+	align-items: center;
+	align-self: center;
+	margin-top: 15px;
+}
+
+.edit {
+	align-content: center;
+	align-items: center;
+	align-self: center;
+	justify-content: center;
+	flex-direction: row;
+	background-color: black;
+	color: rgb(109,92,72);
+
+}
+
+.edit:hover {
+    color: rgb(228,183,106);
+}
+
+.delete {
+	flex-direction: row;
+	background-color: black;
+	align-content: center;
+	align-items: center;
+	align-self: center;
+	justify-content: center;
+	color: rgb(109,92,72);
+}
+
+.delete:hover {
+    color: rgb(228,183,106);
+}
+
+/* unvisited link */
+a:link {
+    color: rgb(228,183,106);
+}
+
+/* visited link */
+a:visited {
+    color: rgb(228,183,106);
+}
+
+/* mouse over link */
+a:hover {
+    color: rgb(109,92,72);
+}
+
+/* selected link */
+a:active {
+    color: rgb(228,183,106);
+}
