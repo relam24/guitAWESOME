@@ -6,7 +6,11 @@ app.controller('GuitarController', ['$http', function ($http) {
 	// declare user
 	this.createUserForm = {};
 	this.user = {};
-
+	//toggle list of songs if logged in or out
+	// this.showInfo = true;
+	// this.toggleInfo = () => {
+	// 	this.showInfo = !this.showInfo;
+	// }
 // create user
 	this.createUser = () => {
 		$http({
@@ -27,7 +31,8 @@ app.controller('GuitarController', ['$http', function ($http) {
 			url: '/sessions',
 			data: this.user
 		}).then(response => {
-			console.log(this.user);
+			// console.log(response.data);
+			console.log(response);
 			this.loggedInUsername = this.user.username;
 			this.user = {};
 		}, error => {
