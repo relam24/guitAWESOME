@@ -10,86 +10,89 @@
     </head>
     <body class='body' ng-controller="GuitarController as ctrl">
 		<div class='header'>
-		<!--Log In-->
-			<div class='login'>
-				<div ng-show='ctrl.showForm'>
-				<form ng-submit='ctrl.logIn()'>
-		            <label for="username">Username:</label>
-					<input type='text' ng-model='ctrl.user.username' />
-		            <label for="password">Password:</label>
-					<input type='password'autocomplete="off" ng-model='ctrl.user.password' />
-				</div>
-					<div>
-		            <input ng-hide='ctrl.showForm' type='submit' value='Log In' />
-					</div>
-				</form>
-		    </div>
-		<!-- Log Out -->
-		    <div>
-		        <button class='logout' ng-click='ctrl.logOut()'>Log Out</button>
-		    </div>Ω
-		<!-- Display Logged In Username -->
-		<div>
-		    <h1 ng-if="ctrl.loggedInUsername">You are logged in {{ctrl.loggedInUsername}}</h1>
-		</div>
-<!--Create User-->
-    <div class='createuser'>
-        <div ng-show='ctrl.showForm'>
-		<form ng-submit='ctrl.createUser()'>
-            <label for="username">Username:</label>
-			<input type='text' ng-model='ctrl.createUserForm.username' />
-            <label for="password">Password:</label>
-			<input type='password' autocomplete="off" ng-model='ctrl.createUserForm.password' />
-			</div>
-			<div>
-			<input ng-hide='ctrl.showForm' type='submit' value='Create User' />
-			</div>
-		</form>
-    </div><br>
-</div><br />
+        <!-- hi button -->
+        <div ng-if="!ctrl.loggedInUsername" id="hi">
+            <button ng-click="ctrl.toggleInfo()">Hi! Sign up or login!</button>
+        </div>
+        <!-- modal -->
+        <div ng-show="ctrl.showInfo" id="modal" ng-if="!ctrl.loggedInUsername">
+            <div class="modal-forms">
+                <!--Log In-->
+                <div class='login'>
+                    Log In:
+                    <form ng-submit='ctrl.logIn()'>
+                        <label for="username">Username:</label>
+                        <input type='text' ng-model='ctrl.user.username' />
+                        <label for="password">Password:</label>
+                        <input type='password'autocomplete="off" ng-model='ctrl.user.password' />
+                        <input type='submit' value='Log In' />
+                    </form>
+                </div><br>
 
+                <!--Create User-->
+                <div class='createuser'>
+                    Create User:
+                    <form ng-submit='ctrl.createUser()'>
+                        <label for="username">Username:</label>
+                        <input type='text' ng-model='ctrl.createUserForm.username' />
+                        <label for="password">Password:</label>
+                        <input type='password' autocomplete="off" ng-model='ctrl.createUserForm.password' />
+                        <input type='submit' value='Create User' />
+                    </form>
+                </div>
+            </div>
+        </div>
 
-<!-- Create Guitar------------>
+        <!-- Display Logged In Username -->
+        <div class="welcome">
+            <h1 ng-if="ctrl.loggedInUsername">You are logged in {{ctrl.loggedInUsername}}</h1>
+        </div>
+        <!-- Log Out -->
+        <div>
+            <button id="logout" ng-if="ctrl.loggedInUsername" ng-click='ctrl.logOut()'>Log Out</button>
+        </div>
+    </div>
+<!-- Create Guitar -->
 	<div class='wrapper'>
-		<div class='createforms'>
-			<div ng-show='ctrl.showForm'>
-        <form ng-class='createform' ng-submit="ctrl.createGuitar()">
-            Song: <input type="text" ng-model="ctrl.createForm.name" placeholder="Name">
-            Artist:<input type="text" ng-model="ctrl.createForm.artist" placeholder="Artist">
-            Video: <input type="text" ng-model="ctrl.createForm.url" placeholder="Video Url">
-            Tab: <input type="text" ng-model="ctrl.createForm.tabUrl" placeholder="Tab Url">
-            Lyrics: <input type="text" ng-model="ctrl.createForm.lyricUrl" placeholder="Lyric Url">
-            Learned Song: <input type="checkbox" ng-model="ctrl.createForm.learnedSong" value="Learned Song">
+		<!-- <div class='createforms'> -->
+			<div ng-if="ctrl.loggedInUsername">
+                <form ng-class='createform' ng-submit="ctrl.createGuitar()">
+                    Song: <input type="text" ng-model="ctrl.createForm.name" placeholder="Name">
+                    Artist:<input type="text" ng-model="ctrl.createForm.artist" placeholder="Artist">
+                    Video: <input type="text" ng-model="ctrl.createForm.url" placeholder="Video Url">
+                    Tab: <input type="text" ng-model="ctrl.createForm.tabUrl" placeholder="Tab Url">
+                    Lyrics: <input type="text" ng-model="ctrl.createForm.lyricUrl" placeholder="Lyric Url">
+                    Learned Song: <input type="checkbox" ng-model="ctrl.createForm.learnedSong" value="Learned Song"><br>
+                    <input type="submit" name="" value="Add New Song">
 			</div>
-		<div>
-		<input ng-hide='ctrl.showForm' type="submit" name="" value="Add New Song">
-		</div>
 		</form>
-		</div>
 <!-- List to be Displayed --->
-		<div class='board'>
-        <div ng-repeat="guitar in ctrl.guitars" class="list">
+		<div ng-if="ctrl.loggedInUsername" class='board'>
+        <div ng-if="ctrl.loggedInUsername" ng-repeat="guitar in ctrl.guitars" class="list">
             <ul>
                 <li><a href="{{guitar.url}}">{{guitar.name}}</a></li>
                 <li>{{guitar.artist}}</li>
                 <li><a href="{{guitar.tabUrl}}">Tab</a></li>
                 <li><a href="{{guitar.lyricUrl}}">Lyrics</a></li>
                 <li>Learned Song: {{guitar.learnedSong}}</li>
-<!-- Updated/Edit list and Delete Button--------------------->
+<!-- Delete Button-->
 				<div class='delete' ng-click='ctrl.deleteGuitar(guitar._id)'>Delete This Entry</div>
-                <div class='edit' ng-click="(ctrl.indexOfEditFormToShow === $index) ? ctrl.indexOfEditFormToShow = null : ctrl.indexOfEditFormToShow = $index">Edit This Entry</div>
-                    <form ng-if="$index === ctrl.indexOfEditFormToShow" ng-submit="ctrl.editGuitar(guitar)">
-                    Song: <input type="text" ng-model="ctrl.updatedName" placeholder="Name">
-                    Artist:<input type="text" ng-model="ctrl.updatedArtist" placeholder="Artist">
-                    Video: <input type="text" ng-model="ctrl.updatedUrl" placeholder="Video Url">
-                    Tab:<input type="text" ng-model="ctrl.updatedtabUrl" placeholder="Tab Url">
-                    Lyrics: <input type="text" ng-model="ctrl.updatedlyricUrl" placeholder="Lyric Url">
+<!-- Updated/Edit list-->
+                <div class='edit'>
+                <a href="#" ng-click="(ctrl.indexOfEditFormToShow === $index) ? ctrl.indexOfEditFormToShow = null : ctrl.indexOfEditFormToShow = $index">Edit This Entry</a>
+                <form ng-if="$index === ctrl.indexOfEditFormToShow" ng-submit="ctrl.editGuitar(guitar)">
+                    Name: <input type="text" ng-model="ctrl.updatedName" placeholder="name">
+                    Artist:<input type="text" ng-model="ctrl.updatedArtist" placeholder="artist name">
+                    Video Url: <input type="text" ng-model="ctrl.updatedUrl" placeholder="song video url">
+                    Tab Url:<input type="text" ng-model="ctrl.updatedtabUrl" placeholder="tab url">
+                    Lyric Url: <input type="text" ng-model="ctrl.updatedlyricUrl" placeholder="lyric url">
                     Learned Song: <input type="checkbox" ng-model="ctrl.updatedlearnedSong" value="Learned Song">
-                    <input type="submit" name="" value="Edit">
+                    <input type="submit" name="" value="Submit Edits" >
                 </form>
             </ul>
-        </div>
+                </div>
 		</div>
 	</div>
+</div>
     </body>
 </html>
