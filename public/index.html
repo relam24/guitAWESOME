@@ -10,6 +10,7 @@
     </head>
     <body class='body' ng-controller="GuitarController as ctrl">
 		<div class='header'>
+        <h1 class='title'>Relax and Learn</h1>   
         <!-- hi button -->
         <div ng-if="!ctrl.loggedInUsername" id="hi">
             <button ng-click="ctrl.toggleInfo()">Hi! Sign up or login!</button>
@@ -27,8 +28,7 @@
                         <input type='password'autocomplete="off" ng-model='ctrl.user.password' />
                         <input type='submit' value='Log In' />
                     </form>
-                </div><br>
-
+               </div><br>
                 <!--Create User-->
                 <div class='createuser'>
                     Create User:
@@ -42,8 +42,7 @@
                 </div>
             </div>
         </div>
-
-        <!-- Display Logged In Username -->
+<!-- Display Logged In Username -->
         <div class="welcome">
             <h1 ng-if="ctrl.loggedInUsername">You are logged in {{ctrl.loggedInUsername}}</h1>
         </div>
@@ -52,11 +51,13 @@
             <button id="logout" ng-if="ctrl.loggedInUsername" ng-click='ctrl.logOut()'>Log Out</button>
         </div>
     </div>
-<!-- Create Guitar -->
+
+<!-- Create Guitar------------>
+
 	<div class='wrapper'>
-		<!-- <div class='createforms'> -->
+	  <div class='createforms'>
 			<div ng-if="ctrl.loggedInUsername">
-                <form ng-class='createform' ng-submit="ctrl.createGuitar()">
+                <form ng-submit="ctrl.createGuitar()">
                     Song: <input type="text" ng-model="ctrl.createForm.name" placeholder="Name">
                     Artist:<input type="text" ng-model="ctrl.createForm.artist" placeholder="Artist">
                     Video: <input type="text" ng-model="ctrl.createForm.url" placeholder="Video Url">
