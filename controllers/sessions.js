@@ -13,7 +13,7 @@ router.post('/', (req, res) => {
 		} else {
 			if (bcrypt.compareSync(req.body.password, user.password)) {
 				req.session.currentuser = user;
-				res.json('index.html');
+				res.json(user);
 			} else {
 				res.send('wrong password');
 			}
