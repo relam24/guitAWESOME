@@ -6,7 +6,7 @@ app.controller('GuitarController', ['$http', function ($http) {
 	// declare user
 	this.createUserForm = {};
 	this.user = {};
-	//toggle list of songs if logged in or out
+	// toggle list of songs if logged in or out
 	// this.showInfo = true;
 	// this.toggleInfo = () => {
 	// 	this.showInfo = !this.showInfo;
