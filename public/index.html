@@ -27,7 +27,7 @@
 		<!-- Log Out -->
 		    <div>
 		        <button class='logout' ng-click='ctrl.logOut()'>Log Out</button>
-		    </div>
+		    </div>Ω
 		<!-- Display Logged In Username -->
 		<div>
 		    <h1 ng-if="ctrl.loggedInUsername">You are logged in {{ctrl.loggedInUsername}}</h1>
@@ -76,8 +76,8 @@
                 <li><a href="{{guitar.lyricUrl}}">Lyrics</a></li>
                 <li>Learned Song: {{guitar.learnedSong}}</li>
 <!-- Updated/Edit list and Delete Button--------------------->
-				<button class='delete' ng-click='ctrl.deleteGuitar(guitar._id)'>Delete This Entry</button>
-                <button class='edit' ng-click="(ctrl.indexOfEditFormToShow === $index) ? ctrl.indexOfEditFormToShow = null : ctrl.indexOfEditFormToShow = $index">Edit This Entry</button>
+				<div class='delete' ng-click='ctrl.deleteGuitar(guitar._id)'>Delete This Entry</div>
+                <div class='edit' ng-click="(ctrl.indexOfEditFormToShow === $index) ? ctrl.indexOfEditFormToShow = null : ctrl.indexOfEditFormToShow = $index">Edit This Entry</div>
                     <form ng-if="$index === ctrl.indexOfEditFormToShow" ng-submit="ctrl.editGuitar(guitar)">
                     Song: <input type="text" ng-model="ctrl.updatedName" placeholder="Name">
                     Artist:<input type="text" ng-model="ctrl.updatedArtist" placeholder="Artist">
