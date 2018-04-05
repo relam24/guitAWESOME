@@ -24,6 +24,7 @@
 	flex-flow: column;
 	border-radius: 4px;
 	border: 2px solid black;
+	overflow: scroll;
 }
 
 .header {
@@ -42,6 +43,86 @@
 	color: rgb(228,183,106);
 }
 
+.title{
+	margin-left: 100px;
+	font-size: 35px;
+}
+
+#modal{
+	background-color: rgba(1, 1, 1, 0.2);
+	position: absolute;
+	margin-top: 30px;
+	margin-left: 100px;
+	height: 15%;
+	width: 50%;
+	z-index: 1;
+	overflow: auto;
+	color:white;
+	font-size: 30px;
+}
+
+#modal-forms{
+	background: white;
+	height: 350px;
+	width: 550px;
+	border-radius: 2px;
+	margin: 150px auto;
+	box-shadow: 0 2px 2px black;
+}
+
+#hi{
+	margin-left: 100px;
+	font-family: 'Covered By Your Grace', cursive;
+	background-color: rgba(0,0,0,0.5);
+	color: white;
+	border: none;
+	font-family: 'Covered By Your Grace', cursive;
+	font-size: 35px;
+}
+
+#loginbtn{
+	background: none;
+	color: white;
+	border: none;
+	font-family: 'Covered By Your Grace', cursive;
+	font-size: 20px;
+}
+
+#cruserbtn{
+	background: none;
+	color: white;
+	border: none;
+	font-family: 'Covered By Your Grace', cursive;
+	font-size: 20px;
+}
+
+#logout{
+	margin-left: 100px;
+	margin-bottom: 0px;
+	padding: 1em;
+	background: none;
+	color: white;
+	border: none;
+	font-family: 'Covered By Your Grace', cursive;
+	font-size: 25px;
+}
+
+#addnewbtn{
+	background: none;
+	color: black;
+	border: none;
+	font-family: 'Covered By Your Grace', cursive;
+	font-size: 25px;
+}
+
+#submiteditsbtn{
+	background: none;
+	color: rgb(228,183,106);
+	border: none;
+	font-family: 'Covered By Your Grace', cursive;
+	font-size: 20px;
+}
+
 .board {
 	flex-wrap: wrap;
 	flex-direction: row;
@@ -52,6 +133,8 @@
 	align-self: center;
 	opacity: 0.8;
 	border-radius: 4px;
+	border-top: 20px solid rgba(0,0,0,0.8);
+	margin-left: 40px;
 }
 
 li {
@@ -66,8 +149,12 @@ li {
 	align-self: center;
 	border-radius: 4px;
 	border: 1px solid rgb(109,92,72);
+	margin-top: 5px;
 }
 
+.list.ng-scope > ul {
+	margin-top: 50px;
+}
 
 /* ul {
     -moz-column-count: 6;
@@ -80,8 +167,8 @@ li {
 
 .h1user {
 	color: rgb(228,183,106);
-	float: right;
-	font-size: 16px;
+	margin-left: 100px;
+	font-size: 77px;
 }
 
 .login {
@@ -104,9 +191,11 @@ li {
 }
 
 .createforms {
+	margin-left: 50px;
 	flex-direction: row;
 	align-items: center;
 	align-self: center;
+	margin-top: 15px;
 }
 
 .edit {

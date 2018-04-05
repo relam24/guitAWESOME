@@ -25,11 +25,10 @@ router.get('/:id', (req, res) => {
 router.post('/', (req, res) => {
 	req.body.password = bcrypt.hashSync(req.body.password, bcrypt.genSaltSync(10));
 	User.create(req.body, (err, createdUser) => {
-		// req.session.currentuser = createdUser;
-		// req.session.curentpassword = createdUser;
 		if (err) {
 			res.send('Please choose another username');
 		} else {
+			req.session.currentuser = createdUser;
 			res.status(201).json({
 				status: 201,
 				message: 'User Created'
