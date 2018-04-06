@@ -6,16 +6,17 @@ app.controller('GuitarController', ['$http', function ($http) {
 	// declare user
 	this.createUserForm = {};
 	this.user = {};
-	// toggle login and create
+	// toggle login and create user
 	this.showInfo = false;
   	this.toggleInfo = () => {
     this.showInfo = !this.showInfo;
     console.log(this.showInfo);
   }
   	// toggle edit song/guitar form
-	this.showEdit = false;
+	// this.showEdit = false;
 	this.closeEdit = () => {
-		this.showEdit = !this.showEdit;
+		// this.showEdit = !this.showEdit;
+		this.indexOfEditFormToShow = !this.indexOfEditFormToShow
 	}
 
 // create user

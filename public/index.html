@@ -78,8 +78,9 @@
 				<div class='delete' ng-click='ctrl.deleteGuitar(guitar._id)'>Delete This Entry</div>
 <!-- Updated/Edit list-->
                 <div class='edit'>
-                <a href="#" ng-click="(ctrl.indexOfEditFormToShow === $index) ? ctrl.indexOfEditFormToShow = null : ctrl.indexOfEditFormToShow = $index">Edit This Entry</a>
-                <form ng-show="!ctrl.showEdit" ng-if="$index === ctrl.indexOfEditFormToShow" ng-submit="ctrl.editGuitar(guitar)">
+                <a ng-click="(ctrl.indexOfEditFormToShow === $index) ? ctrl.indexOfEditFormToShow = null : ctrl.indexOfEditFormToShow = $index">Edit This Entry</a>
+                <!-- <form ng-show="!ctrl.showEdit" ng-if="$index === ctrl.indexOfEditFormToShow" ng-submit="ctrl.editGuitar(guitar)"> -->
+                    <form ng-if="$index === ctrl.indexOfEditFormToShow" ng-submit="ctrl.editGuitar(guitar)">
                     Name: <input type="text" ng-model="ctrl.updatedName" placeholder="name">
                     Artist: <input type="text" ng-model="ctrl.updatedArtist" placeholder="artist name">
                     Video Url: <input type="text" ng-model="ctrl.updatedUrl" placeholder="song video url">
@@ -88,8 +89,11 @@
                     Learned Song: <input type="checkbox" ng-model="ctrl.updatedlearnedSong" value="Learned Song">
                     <input id="submiteditsbtn" type="submit" name="" value="Submit Edits" >
                     <form>
-                        <input type="submit" value = "Done Editing" ng-click="ctrl.closeEdit()">
+                        <input type="submit" value="Done Editing" ng-click="ctrl.closeEdit()">
                     </form>
+                    <!-- <form>
+                        <input type="submit" value="Done Editing" ng-click="ctrl.closeEdit()">
+                    </form> -->
                 </form>
             </ul>
             </div>
