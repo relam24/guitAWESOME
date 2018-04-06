@@ -3,31 +3,31 @@ const router = express.Router();
 const User = require('../models/users.js');
 const bcrypt = require('bcrypt');
 const session = require('express-session');
-//  post new session
+//post new session
 router.post('/', (req, res) => {
-	User.findOne({
-		username: req.body.username
-	}, (err, user) => {
-		if (user === null || undefined) {
-			res.send('invalid username');
-		} else {
-			if (bcrypt.compareSync(req.body.password, user.password)) {
-				req.session.currentuser = user;
-				res.json(user);
-			} else {
-				res.send('wrong password');
-			}
-		}
-	});
+   User.findOne({
+	   username: req.body.username
+   }, (err, user) => {
+	   if (user === null || undefined) {
+		   res.send('invalid username');
+	   } else {
+		   if (bcrypt.compareSync(req.body.password, user.password)) {
+			   req.session.currentuser = user;
+				res.json("logged in");
+		   } else {
+			   res.send('wrong password');
+		   }
+	   }
+   });
 });
-// logout session
+//logout session
 router.delete('/', (req, res) => {
-	req.session.destroy(() => {
-		res.status(200).json({
-			status: 200,
-			message: 'logout complete'
-		});
-	});
+   req.session.destroy(() => {
+	   res.status(200).json({
+		   status: 200,
+		   message: 'logout complete'
+	   });
+   });
 });
 
 module.exports = router;

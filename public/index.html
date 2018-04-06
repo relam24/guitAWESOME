@@ -78,7 +78,7 @@
 				<div class='delete' ng-click='ctrl.deleteGuitar(guitar._id)'>Delete This Entry</div>
 <!-- Updated/Edit list-->
                 <div class='edit'>
-                <a ng-click="(ctrl.indexOfEditFormToShow === $index) ? ctrl.indexOfEditFormToShow = null : ctrl.indexOfEditFormToShow = $index">Edit This Entry</a>
+                <a ng-click="(ctrl.loggedInUsername.indexOfEditFormToShow === $index) ? ctrl.indexOfEditFormToShow = null : ctrl.indexOfEditFormToShow = $index">Edit This Entry</a>
                 <!-- <form ng-show="!ctrl.showEdit" ng-if="$index === ctrl.indexOfEditFormToShow" ng-submit="ctrl.editGuitar(guitar)"> -->
                     <form ng-if="$index === ctrl.indexOfEditFormToShow" ng-submit="ctrl.editGuitar(guitar)">
                     Name: <input type="text" ng-model="ctrl.updatedName" placeholder="name">

@@ -6,6 +6,9 @@ app.controller('GuitarController', ['$http', function ($http) {
 	// declare user
 	this.createUserForm = {};
 	this.user = {};
+	//user by ID
+	this.loggedInUsername = '';
+	this.loggedInUsernameID = '';
 	// toggle login and create user
 	this.showInfo = false;
   	this.toggleInfo = () => {
@@ -26,7 +29,7 @@ app.controller('GuitarController', ['$http', function ($http) {
 			url: '/users',
 			data: this.createUserForm
 		}).then(response => {
-			console.log(response);
+			console.log("created user");
 			this.createUserForm = {};
 		}, error => {
 			console.log(error);
@@ -41,6 +44,7 @@ app.controller('GuitarController', ['$http', function ($http) {
 		}).then(response => {
 			console.log(response);
 			this.loggedInUsername = this.user.username;
+			this.loggedInUsernameID = response.data._id;
 			this.user = {};
 		}, error => {
 			console.log(error);
