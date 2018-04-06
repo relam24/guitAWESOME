@@ -6,11 +6,19 @@ app.controller('GuitarController', ['$http', function ($http) {
 	// declare user
 	this.createUserForm = {};
 	this.user = {};
-	//toggle list of songs if logged in or out
-	// this.showInfo = true;
-	// this.toggleInfo = () => {
-	// 	this.showInfo = !this.showInfo;
-	// }
+	// toggle login and create user
+	this.showInfo = false;
+  	this.toggleInfo = () => {
+    this.showInfo = !this.showInfo;
+    console.log(this.showInfo);
+  }
+  	// toggle edit song/guitar form
+	// this.showEdit = false;
+	this.closeEdit = () => {
+		// this.showEdit = !this.showEdit;
+		this.indexOfEditFormToShow = !this.indexOfEditFormToShow
+	}
+
 // create user
 	this.createUser = () => {
 		$http({
@@ -31,7 +39,6 @@ app.controller('GuitarController', ['$http', function ($http) {
 			url: '/sessions',
 			data: this.user
 		}).then(response => {
-			// console.log(response.data);
 			console.log(response);
 			this.loggedInUsername = this.user.username;
 			this.user = {};
@@ -78,7 +85,6 @@ app.controller('GuitarController', ['$http', function ($http) {
 			console.error(error);
 		}).catch(err => console.error('Catch: ', err));
 	};
-	this.getGuitar();
 // delete song entry
 	this.deleteGuitar = (id) => {
 		$http({

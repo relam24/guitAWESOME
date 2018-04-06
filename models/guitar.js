@@ -5,7 +5,7 @@ const guitarSchema = new mongoose.Schema({
 	name: String,
 	artist: String,
 	url: String,
-	tabUrl: {text: String, html: String},
+	tabUrl: String,
 	lyricUrl: String,
 	learnedSong: {type: Boolean, default: false}
 });
