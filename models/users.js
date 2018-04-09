@@ -1,13 +1,23 @@
 const mongoose = require('mongoose');
 const bcrypt = require('bcrypt');
 const session = require('express-session');
-const Guitar = require('./guitar.js')
+const Schema = mongoose.Schema;
 
-const userSchema = mongoose.Schema({
-	username: {type: String, required: true, unique: true},
-	password: {type: String, required: true},
+const guitarSchema = new Schema({
+	name: String,
+	artist: String,
+	url: String,
+	tabUrl: String,
+	lyricUrl: String,
+	learnedSong: {type: Boolean, default: false},
 });
 
-const User = mongoose.model('User', userSchema);
+const userSchema = new Schema({
+	username: {type: String, required: true, unique: true},
+	password: {type: String, required: true},
+	songs: [guitarSchema]
+});
+
+const User = mongoose.model('Users', userSchema);
 
 module.exports = User;

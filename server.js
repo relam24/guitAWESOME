@@ -6,7 +6,6 @@ const session = require('express-session');
 const bcrypt = require('bcrypt');
 const router = express.Router();
 
-
 app.use(express.json());
 app.use(express.static('public'));
 app.use(session({

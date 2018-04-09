@@ -10,13 +10,14 @@ router.get('/', (req, res) => {
 	});
 });
 
-// one user by id
+// user by id
 router.get('/:id', (req, res) => {
 	User.findById(req.params.id, (err, UserById) => {
 		if (err) {
 			res.send('User not found');
 		} else {
 			res.json(UserById);
+			currentuser: req.session.currentuser
 		}
 	});
 });
