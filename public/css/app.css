@@ -124,6 +124,14 @@
 	font-size: 20px;
 }
 
+#done{
+	background: none;
+	color: rgb(228,183,106);
+	border: none;
+	font-family: 'Covered By Your Grace', cursive;
+	font-size: 20px;
+}
+
 .board {
 	flex-wrap: wrap;
 	flex-direction: row;
