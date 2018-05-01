@@ -15,6 +15,4 @@ As I said earlier, figuring out the API to the scraper that was not exactly an A
 
 We both had a ton of fun doing this project, it was a really good balance between the fun we were having and being challenging. Also, there was a great debate between naming our app guitAWESOME and guitAWWWYEAHHHH.
 
-We couldn't figure out something better.
-
 
