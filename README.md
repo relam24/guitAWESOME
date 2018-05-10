@@ -18,7 +18,6 @@ We both had a ton of fun doing this project, it was a really good balance betwee
 Code Snippet --- 
 Angular index.html
 
-<!DOCTYPE html>
 <html lang="en" dir="ltr" ng-app="GuitarApp">
     <head>
         <meta charset="utf-8">
