@@ -18,16 +18,6 @@ We both had a ton of fun doing this project, it was a really good balance betwee
 Code Snippet --- 
 Angular index.html
 
-<html lang="en" dir="ltr" ng-app="GuitarApp">
-    <head>
-        <meta charset="utf-8">
-        <title></title>
-        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js" charset="utf-8"></script>
-        <script src="/js/app.js" charset="utf-8"></script>
-        <link rel="stylesheet" href="/css/app.css">
-		<link href="https://fonts.googleapis.com/css?family=Covered+By+Your+Grace" rel="stylesheet">
-    </head>
-    <body class='body' ng-controller="GuitarController as ctrl">
 		<div class='header'>
             <h1 class='title'>Relax and Learn</h1>
         <!-- hi button -->
