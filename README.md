@@ -7,7 +7,7 @@ SUMMARY/DESCRIPTION:
 App that is dedicated to helping beginning musicians learn how to play by sharing chords and tabs along with youtube videos to play along to. This is actually the exact way I learned how to play guitar. Looking up the chords and tabs and then listening along on youtube.
 
 APPROACH: 
-Technologies Used: Node.js, Mongoose, Express, AngularJS, HTML, and CSS. Full crud and using MVC structure.
+Technologies Used: Node.js, MongoDB, Mongoose, Express, AngularJS, HTML, and CSS. Full crud and using MVC structure.
 We wanted to build an app dedicated to musicians who just want to chill and learn new songs as Olena plays ukulele and I play guitar. We found a scraper dedicated to Ultimate Guitar but it didn't seem like it was actually an API so we opted to keep it out. The theme is very nature/mountain/campfire as it tied in really well with the relaxing tone we were going for.
 
 UNSOLVED PROBLEMS:
