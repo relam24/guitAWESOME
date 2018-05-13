@@ -1,6 +1,4 @@
-# guitAWESOME
-
-guitAWESOME
+Relax and Learn
 
 Project: guitAWESOME Live Site https://guitawesome.herokuapp.com/
 SUMMARY/DESCRIPTION:
